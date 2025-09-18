@@ -1,0 +1,65 @@
+* {
+    border: 1px solid rgba(0,0,0,0.2);
+    box-sizing: border-box;
+  }
+
+body{
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    font-family: sans-serif;
+    
+}
+
+
+aside{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    
+    width: 30%;
+}
+
+aside > *{
+    width: 100%;
+    padding: 5%;
+    
+}
+
+
+main{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 40%;
+    height: 100%;
+    
+
+}
+
+main > *{
+    padding: 5%;
+    width: 100%;
+    height: 50%;
+}
+
+body > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width:30%;
+
+}
+
+body > div > *{
+    padding: 5%;
+    width:100%;
+    height: 25%;
+}
+
+body > div > *:first-child{
+    height: 50%;
+}
+
