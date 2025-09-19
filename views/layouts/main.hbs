@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MovieBase</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="container header">
+    <h1 class="brand">MovieBase</h1>
+    <div class="auth">
+      {{#if user}}
+        <span>Signed in as <b>{{user.username}}</b> ({{user.role}})</span>
+        <form action="/logout" method="post" class="inline"><button type="submit">Logout</button></form>
+      {{else}}
+        <a class="btn" href="/login">Login</a>
+      {{/if}}
+    </div>
+  </header>
+
+  <!-- Nav -->
+  <nav class="container nav">
+    <a href="/">Home</a>
+    <a href="/movies?page=1">Movies</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    {{#if (eq user.role 'admin')}}
+      <a href="/admin/users">Users</a>
+    {{/if}}
+  </nav>
+
+  <!-- Main content -->
+  <main class="container">
+    {{{body}}}
+  </main>
+
+  <!-- Footer -->
+  <footer class="container footer">
+    <small>© MovieBase</small>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<h2>Edit Movie</h2>
+<form action="/movies/{{movie.id}}/edit" method="post" enctype="multipart/form-data">
+  <label>Title <input name="title" value="{{movie.title}}" required></label>
+  <label>Synopsis <textarea name="synopsis" required>{{movie.synopsis}}</textarea></label>
+  <label>Rating <input type="number" name="rating" min="1" max="10" value="{{movie.rating}}"></label>
+  <label>Category
+    <select name="category_id">
+      {{#each categories}}
+        <option value="{{id}}" {{#if (eq id ../movie.category_id)}}selected{{/if}}>{{name}}</option>
+      {{/each}}
+    </select>
+  </label>
+  <label>Poster <input type="file" name="poster"></label>
+  <button>Update</button>
+</form>

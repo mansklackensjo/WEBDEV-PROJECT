@@ -1,0 +1,21 @@
+<h2>All Movies</h2>
+{{#if user}}<p><a class="btn" href="/movies/new">+ New Movie</a></p>{{/if}}
+
+<div class="grid">
+  {{#each movies}}
+    <article class="card">
+      {{#if poster_path}}
+        <a href="/movies/{{id}}"><img class="poster" src="{{poster_path}}" alt="{{title}} poster" /></a>
+      {{/if}}
+      <h3 class="title"><a href="/movies/{{id}}">{{title}}</a></h3>
+      <p class="meta"><b>Category:</b> {{category}} · <b>Rating:</b> {{rating}}/10</p>
+      <p class="synopsis">{{synopsis}}</p>
+    </article>
+  {{/each}}
+</div>
+
+<div class="pagination">
+  {{#times totalPages}}
+    <a class="page-link {{#if (eq ../page this)}}active{{/if}}" href="/movies?page={{this}}">{{this}}</a>
+  {{/times}}
+</div>

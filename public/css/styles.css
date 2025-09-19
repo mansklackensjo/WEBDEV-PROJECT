@@ -1,0 +1,43 @@
+/* Base */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.45; color: #222; }
+img { max-width: 100%; display: block; }
+
+/* Layout */
+.container { max-width: 1000px; margin: 0 auto; padding: 1rem; }
+.header, .footer { display: flex; align-items: center; justify-content: space-between; gap: .75rem; }
+.nav { display: flex; flex-wrap: wrap; gap: 1rem; border-top: 1px solid #eee; border-bottom: 1px solid #eee; margin-bottom: 1rem; }
+.nav a { text-decoration: none; color: #333; padding: .5rem 0; }
+
+/* Buttons */
+.brand { margin: 0; font-size: 1.5rem; }
+.inline { display: inline; }
+.btn { display: inline-block; padding: .5rem .75rem; border: 1px solid #ccc; border-radius: 6px; text-decoration: none; background: #fafafa; }
+.btn:hover { background: #f0f0f0; }
+.btn.danger { border-color: #c33; color: #c33; }
+.btn.danger:hover { background: #ffecec; }
+
+/* Grid & cards */
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.card { border: 1px solid #e5e5e5; border-radius: 10px; padding: 1rem; background: #fff; }
+.title { margin: .5rem 0; }
+.meta { color: #555; margin: .25rem 0 .5rem; }
+.synopsis { margin: 0; }
+.poster { border-radius: 8px; }
+.poster.large { max-width: 320px; margin-bottom: 1rem; }
+
+/* Pagination */
+.pagination { margin-top: 1rem; }
+.page-link { display: inline-block; margin-right: .5rem; padding: .35rem .6rem; border: 1px solid #ccc; border-radius: 6px; text-decoration: none; color: #333; }
+.page-link.active { background: #333; color: #fff; border-color: #333; }
+
+/* Movie detail */
+.movie .actions { margin: 1rem 0; display: flex; gap: .5rem; }
+
+/* Responsive */
+@media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) {
+  .grid { grid-template-columns: 1fr; }
+  .header, .footer { flex-direction: column; align-items: flex-start; }
+}

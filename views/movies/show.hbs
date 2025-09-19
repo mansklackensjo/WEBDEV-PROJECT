@@ -1,0 +1,18 @@
+<article class="movie">
+  {{#if movie.poster_path}}
+    <img class="poster large" src="{{movie.poster_path}}" alt="{{movie.title}} poster" />
+  {{/if}}
+
+  <h2>{{movie.title}}</h2>
+  <p class="meta"><b>Category:</b> {{movie.category}} · <b>Rating:</b> {{movie.rating}}/10</p>
+  <p class="synopsis">{{movie.synopsis}}</p>
+
+  {{#if user}}
+    <div class="actions">
+      <a class="btn" href="/movies/{{movie.id}}/edit">Edit</a>
+      <form class="inline" action="/movies/{{movie.id}}/delete" method="post">
+        <button class="btn danger" type="submit">Delete</button>
+      </form>
+    </div>
+  {{/if}}
+</article>
