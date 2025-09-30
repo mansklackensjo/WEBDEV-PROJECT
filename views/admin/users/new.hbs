@@ -1,0 +1,17 @@
+<h2>New User</h2>
+{{#if error}}<p style="color:red">{{error}}</p>{{/if}}
+<form action="/admin/users" method="post">
+  <label>Username
+    <input name="username" value="{{form.username}}" required>
+  </label>
+  <label>Password
+    <input type="password" name="password" required>
+  </label>
+  <label>Role
+    <select name="role" required>
+      <option value="user" {{#if (eq form.role 'user')}}selected{{/if}}>user</option>
+      <option value="admin" {{#if (eq form.role 'admin')}}selected{{/if}}>admin</option>
+    </select>
+  </label>
+  <button type="submit">Create</button>
+</form>

@@ -1,7 +1,21 @@
 <h2>All Users</h2>
+<p><a class="btn" href="/admin/users/new">+ New User</a></p>
 <table border="1" cellpadding="5">
-  <tr><th>ID</th><th>Username</th><th>Role</th></tr>
+  <tr><th>ID</th><th>Username</th><th>Role</th><th>Actions</th></tr>
   {{#each users}}
-    <tr><td>{{id}}</td><td>{{username}}</td><td>{{role}}</td></tr>
+    <tr>
+      <td>{{id}}</td>
+      <td>{{username}}</td>
+      <td>{{role}}</td>
+      <td>
+        <a class="btn" href="/admin/users/{{id}}/edit">Edit</a>
+        <form class="inline" action="/admin/users/{{id}}/delete" method="post" onsubmit="return confirm('Delete user {{username}}?');">
+          <button class="btn danger" type="submit">Delete</button>
+        </form>
+      </td>
+    </tr>
   {{/each}}
+  {{#unless users}}
+    <tr><td colspan="4"><em>No users</em></td></tr>
+  {{/unless}}
 </table>

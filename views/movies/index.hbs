@@ -1,6 +1,23 @@
 <h2>All Movies</h2>
 {{#if user}}<p><a class="btn" href="/movies/new">+ New Movie</a></p>{{/if}}
 
+<form class="filter" action="/movies" method="get">
+  <input type="hidden" name="page" value="1" />
+  <label>Category
+    <select name="category_id" onchange="this.form.submit()">
+      <option value="">All</option>
+      {{#each categories}}
+        <option value="{{id}}" {{#if (eq id ../selectedCategoryId)}}selected{{/if}}>{{name}}</option>
+      {{/each}}
+    </select>
+  </label>
+  <noscript><button type="submit">Filter</button></noscript>
+  {{#if selectedCategoryId}}
+    <a class="btn" href="/movies?page=1">Clear</a>
+  {{/if}}
+  <hr />
+  </form>
+
 <div class="grid">
   {{#each movies}}
     <article class="card">
@@ -16,6 +33,6 @@
 
 <div class="pagination">
   {{#times totalPages}}
-    <a class="page-link {{#if (eq ../page this)}}active{{/if}}" href="/movies?page={{this}}">{{this}}</a>
+    <a class="page-link {{#if (eq ../page this)}}active{{/if}}" href="/movies?page={{this}}{{#if ../selectedCategoryId}}&category_id={{../selectedCategoryId}}{{/if}}">{{this}}</a>
   {{/times}}
 </div>

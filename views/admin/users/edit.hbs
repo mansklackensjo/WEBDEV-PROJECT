@@ -1,0 +1,17 @@
+<h2>Edit User</h2>
+{{#if error}}<p style="color:red">{{error}}</p>{{/if}}
+<form action="/admin/users/{{u.id}}/edit" method="post">
+  <label>Username
+    <input name="username" value="{{u.username}}" required>
+  </label>
+  <label>Role
+    <select name="role" required>
+      <option value="user" {{#if (eq u.role 'user')}}selected{{/if}}>user</option>
+      <option value="admin" {{#if (eq u.role 'admin')}}selected{{/if}}>admin</option>
+    </select>
+  </label>
+  <label>New Password (optional)
+    <input type="password" name="password" placeholder="Leave blank to keep current">
+  </label>
+  <button type="submit">Save</button>
+</form>
