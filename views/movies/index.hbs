@@ -1,7 +1,7 @@
-<h2>All Movies</h2>
+<h2 id="all-movies">All Movies</h2>
 {{#if user}}<p><a class="btn" href="/movies/new">+ New Movie</a></p>{{/if}}
 
-<form class="filter" action="/movies" method="get">
+<form class="filter" action="/movies#all-movies" method="get">
   <input type="hidden" name="page" value="1" />
   <label>Category
     <select name="category_id" onchange="this.form.submit()">
@@ -13,7 +13,7 @@
   </label>
   <noscript><button type="submit">Filter</button></noscript>
   {{#if selectedCategoryId}}
-    <a class="btn" href="/movies?page=1">Clear</a>
+    <a class="btn" href="/movies?page=1#all-movies">Clear</a>
   {{/if}}
   <hr />
   </form>
@@ -33,6 +33,6 @@
 
 <div class="pagination">
   {{#times totalPages}}
-    <a class="page-link {{#if (eq ../page this)}}active{{/if}}" href="/movies?page={{this}}{{#if ../selectedCategoryId}}&category_id={{../selectedCategoryId}}{{/if}}">{{this}}</a>
+    <a class="page-link {{#if (eq ../page this)}}active{{/if}}" href="/movies?page={{this}}{{#if ../selectedCategoryId}}&category_id={{../selectedCategoryId}}{{/if}}#all-movies">{{this}}</a>
   {{/times}}
 </div>
