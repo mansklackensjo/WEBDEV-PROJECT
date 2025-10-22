@@ -1,3 +1,36 @@
+/*
+Måns Klackensjö - klma23hs@student.ju.se
+
+Target grade: 5
+
+Moviebase is my project called
+
+adminlogin: admin
+adminpassword: wdf#2025 --> $2b$10$9IYiSykTu9JcOq0KoxD.6.wwng/u9vam2RXopTuUbMiBYuqJsMW2i
+
+userlogin: mans
+userpassword: user1234 --> $2b$10$hYpVT5TenfckxP88sT3COeuSMl9KLdm6QPAzfe9pq2sERzzblnSxC
+
+-Most of the code is made by me and I have made sure to understand and learnt alot in this project. But some parts were assisted by AI (chatgpt)
+ For example the Multer upload handling so poster images persist across create/edit. 
+
+ The pagination + category filtering logic derived with guidance to keep SQL safe. 
+
+ And also a little debugging when I tried to get the CRUD to work.
+ 
+ The CSS I alse had inspiration and asked AI how you could do it. Some help with how responsive grid + aspect-ratio posters for uniform cards work
+ in practice.
+
+ For me AI is a helpful tool to learn more and faster.
+
+ The images is downloaded from google images
+
+ Thanks for the course! 
+
+
+*/
+
+
 // app.js
 const express = require('express');
 const exphbs  = require('express-handlebars');
